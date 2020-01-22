@@ -1,3 +1,5 @@
+//factory design pattern
+
 abstract class Food{
 	private int quantity;
 	
