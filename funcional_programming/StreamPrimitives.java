@@ -66,47 +66,6 @@ public class StreamPrimitives{
 		BooleanSupplier b2 = () -> Math.random() > 0.5;
 		
 		System.out.println(b1.getAsBoolean());
-		System.out.println(b2.getAsBoolean());
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		System.out.println(b2.getAsBoolean());		
 	}
-	
-	
 }
