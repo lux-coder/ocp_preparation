@@ -1,0 +1,50 @@
+import java.io.*;
+
+Reader reader = ...;				//probably throws an exception
+
+int nextChar = reader.read();		//throws IOException
+
+while(nextChar =! -1){
+	//do something with nextChar
+	nextChar = reader.read();		//throws IOException	
+}
+
+
+
+Reader reader = null;
+
+try{	
+	reader = ...;
+	
+	char[] buffer = new char[1024];
+	int number = reader.read(buffer);
+
+	while(number != -1){		
+		number = reader.read(buffer);
+	}	
+} catch(IOException e){
+	//deal with the exception	
+} finally{							//close pattern
+	if(reader != null){
+		try{
+			reader.close();
+		} catch(IOException e){
+			//deal with exception
+		}
+	}
+}
+
+
+//should use try-with-resources
+//resource must implement AutoCloseable 
+
+
+File file = new File("files/data.txt");
+FileReader fileReader = new FileReader(file);
+
+//Java 1 pattern
+BufferedReader bufferedReader = new BufferedReader(fileReader);
+LineNumberReader lineNumberReader = new LineNumberReader(fileReader);
+
+Path path = Paths.get("files/data.txt");
+BufferedReader bufferedReader2 = Files.newBufferedReader(path, StandardCharsets.ISO_8859_1);
